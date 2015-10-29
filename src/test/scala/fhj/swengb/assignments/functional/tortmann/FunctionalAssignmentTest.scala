@@ -1,4 +1,4 @@
-package fhj.swengb.assignments.functional.rladstaetter
+package fhj.swengb.assignments.functional.tortmann
 
 import org.junit.Assert._
 import org.junit.{Ignore, Test}

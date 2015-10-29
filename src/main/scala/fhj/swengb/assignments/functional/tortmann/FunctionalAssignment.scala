@@ -1,4 +1,4 @@
-package fhj.swengb.assignments.functional.rladstaetter
+package fhj.swengb.assignments.functional.tortmann
 
 /**
   * This is the first assignment for swengb 2015.
