@@ -14,7 +14,9 @@ case class FunctionalAssignment(lowerBound: Int = 1,
 
   val xs: Seq[Int] = lowerBound until upperBound+1
 
-  /** provide the sum of all elements defined in xs */
+  /** provide the sum of all elements defined in xs
+    * using the builtin function sum to sum up all elements of a list, sequence etc. from head to tail
+    */
 
   val sumXs = xs.sum
 
@@ -29,10 +31,21 @@ case class FunctionalAssignment(lowerBound: Int = 1,
     * x(998) = factor
     * x(999) = lowerbound
     *
+    * new sequence ys starts with the upperbound and ends with the lowerbounds
+    * - it is there for the same as sequence xs but in reverse order
+    * 1) reversing xs
+    * 2) multiply the elements of the new sequence xs reversed with factor -> map
     */
+
+  // val ys: Seq[Int] = xs.reverse.map(xs*factor)
   val ys: Seq[Int] = xs.reverse.map(_*factor)
 
   /** this sequence contains pairs of xs and ys. the ys should be in reversed order */
+
+  /** zip method
+    * Returns a list formed from this list and another iterable collection by combining
+    * corresponding elements in pairs. If one of the two collections is longer than the
+    * other, its remaining elements are ignored. */
 
   val zs: Seq[(Int, Int)] = xs zip ys.reverse
 
