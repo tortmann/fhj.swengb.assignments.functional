@@ -60,6 +60,7 @@ case class FunctionalAssignment(lowerBound: Int = 1,
   /** Function should divide the second operand with the first */
 
   def f(ab: (Int, Int)): Int = ab._2 / ab._1
+
   /********************************************************************************************************************/
   /** apply function f defined above to all elements of zs, return the sequence */
 
