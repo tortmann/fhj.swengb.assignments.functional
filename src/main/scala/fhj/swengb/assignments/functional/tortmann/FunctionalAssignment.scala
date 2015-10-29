@@ -1,10 +1,5 @@
 package fhj.swengb.assignments.functional.tortmann
 
-
-/**
-  * This is the first assignment for swengb 2015.
-  *
-  */
 case class FunctionalAssignment(lowerBound: Int = 1,
                                 upperBound: Int = 1000,
                                 factor: Int = 2) {
@@ -66,4 +61,5 @@ case class FunctionalAssignment(lowerBound: Int = 1,
 
   val result: Seq[Int] = zs.map(f)
 
+  /********************************************************************************************************************/
 }
