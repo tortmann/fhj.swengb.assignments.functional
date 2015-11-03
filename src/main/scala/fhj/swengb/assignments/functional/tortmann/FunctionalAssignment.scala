@@ -6,13 +6,17 @@ case class FunctionalAssignment(lowerBound: Int = 1,
   require(lowerBound < upperBound)
 
   /********************************************************************************************************************/
-  /** implement a SEQUENCE of integers (Seq[Int]), which start with lowerBound:Int and end with upperBound:Int */
-
-  val xs: Seq[Int] = lowerBound until upperBound+1
+  /** implement a SEQUENCE of integers (Seq[Int]), which start with lowerBound:Int and end with upperBound:Int
+    * val xs: Seq[Int] = lowerBound until upperBound+1
+    */
+  val xs: Seq[Int] = Seq.range(lowerBound,upperBound+1)
 
   /********************************************************************************************************************/
   /** provide the sum of all elements defined in xs
     * using the builtin function sum to sum up all elements of a list, sequence etc. from head to tail
+    *
+    * alternative approach using foldLeft -> warning from Intellij
+    * val sumXs = xs.foldLeft(0)(_+_)
     */
 
   val sumXs = xs.sum
@@ -33,6 +37,12 @@ case class FunctionalAssignment(lowerBound: Int = 1,
     * - it is there for the same as sequence xs but in reverse order
     * 1) reversing xs
     * 2) multiply the elements of the new sequence xs reversed with factor -> map
+    *
+    * val ys: Seq[Int] = xs.reverse.map(x => x*factor) - long version
+    *
+    * sequencing of reversing doenst matter => therefore
+    * val ys: Seq[Int] = xs.map(_*factor).reverse
+    * yields the same result
     */
 
   val ys: Seq[Int] = xs.reverse.map(_*factor)
@@ -41,9 +51,11 @@ case class FunctionalAssignment(lowerBound: Int = 1,
   /** this sequence contains pairs of xs and ys. the ys should be in reversed order */
 
   /** zip method
-    * Returns a list formed from this list and another iterable collection by combining
-    * corresponding elements in pairs. If one of the two collections is longer than the
+    * -------------------
+    * Returns a list formed from this list and another iterable collection by COMBINING
+    * corresponding elements IN PAIRS. If one of the two collections is longer than the
     * other, its remaining elements are ignored.
+    * -------------------
     *
     * i used the zip method to build the pairs and like in val ys use the reverse function
     * to reverse the order of ys
@@ -52,13 +64,18 @@ case class FunctionalAssignment(lowerBound: Int = 1,
   val zs: Seq[(Int, Int)] = xs zip ys.reverse
 
   /********************************************************************************************************************/
-  /** Function should divide the second operand with the first */
+  /** Function should divide the second operand by the first
+    * ._x Index x des Tuples t:(x,y)
+    **/
 
-  def f(ab: (Int, Int)): Int = ab._2 / ab._1
+  def f(ab: (Int, Int)): Int = {
+    ab._2 / ab._1
+  }
 
   /********************************************************************************************************************/
-  /** apply function f defined above to all elements of zs, return the sequence */
-
+  /** apply function f defined above to all elements of zs, return the sequence
+    * val result: Seq[Int] = zs.map(x => f(x)) - long version
+    */
   val result: Seq[Int] = zs.map(f)
 
   /********************************************************************************************************************/
